@@ -12,10 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: hashicorp/setup-terraform@v2
-      - uses: datamonsters/replace-action
-        with:
-          files: 'terraform.tfvars.json'
-          replacements: '$ATLAS_ORG_ID=${{ secrets.ATLAS_ORG_ID }},$ATLAS_PRIVATE_KEY=${{ secrets.ATLAS_PRIVATE_KEY }},$ATLAS_PUBLIC_KEY=${{ secrets.ATLAS_PUBLIC_KEY }}'
+      - name: Find and Replace
+        run: |
+          sed -i -e 's/ATLAS_PUBLIC_KEY/${{ secrets.ATLAS_PUBLIC_KEY }}/g' terraform.tfvars.json
+          sed -i -e 's/ATLAS_PRIVATE_KEY/${{ secrets.ATLAS_PRIVATE_KEY }}/g' terraform.tfvars.json
+          sed -i -e 's/ATLAS_ORG_ID/${{ secrets.ATLAS_ORG_ID }}/g' terraform.tfvars.json
       # - run: terraform init
       # - id: plan
       #   run: terraform plan -no-color
