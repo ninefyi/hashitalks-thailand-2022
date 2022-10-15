@@ -14,12 +14,12 @@ jobs:
       - uses: hashicorp/setup-terraform@v2
       - name: Find and Replace
         run: |
-          sed -i -e 's/ATLAS_PUBLIC_KEY/${{ secrets.ATLAS_PUBLIC_KEY }}/g' terraform.tfvars.json
-          sed -i -e 's/ATLAS_PRIVATE_KEY/${{ secrets.ATLAS_PRIVATE_KEY }}/g' terraform.tfvars.json
+          sed -i -e 's/ATLAS_API_PRIVATE_KEY/${{ secrets.ATLAS_API_PRIVATE_KEY }}/g' terraform.tfvars.json
+          sed -i -e 's/ATLAS_API_PUBLIC_KEY/${{ secrets.ATLAS_API_PUBLIC_KEY }}/g' terraform.tfvars.json
           sed -i -e 's/ATLAS_ORG_ID/${{ secrets.ATLAS_ORG_ID }}/g' terraform.tfvars.json
-      # - run: terraform init
-      # - id: plan
-      #   run: terraform plan -no-color
+      - run: terraform init
+      - id: plan
+        run: terraform plan -no-color
       # - name: Terraform Apply
       #   id: apply
       #   run: terraform apply
