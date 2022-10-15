@@ -23,4 +23,4 @@ jobs:
         run: terraform plan -var-file=terraform.tfvars.json -no-color
       - name: Terraform Apply
         id: apply
-        run: terraform apply -var-file=terraform.tfvars.json
+        run: terraform apply -var-file=terraform.tfvars.json -auto-approve
