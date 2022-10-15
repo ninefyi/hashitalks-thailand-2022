@@ -12,11 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: hashicorp/setup-terraform@v2
-      # - name: Replace secret in config
-      #   uses: datamonsters/replace-action
-      #   with:
-      #     files: 'terraform.tfvars.json'
-      #     replacements: '$ATLAS_ORG_ID=${{ ATLAS_ORG_ID }},$ATLAS_PRIVATE_KEY=${{ $ATLAS_PRIVATE_KEY }},$ATLAS_PUBLIC_KEY=${{ secrets.ATLAS_PUBLIC_KEY }}'
+      - uses: datamonsters/replace-action
+        with:
+          files: 'terraform.tfvars.json'
+          replacements: '$ATLAS_ORG_ID=${{ ATLAS_ORG_ID }},$ATLAS_PRIVATE_KEY=${{ $ATLAS_PRIVATE_KEY }},$ATLAS_PUBLIC_KEY=${{ secrets.ATLAS_PUBLIC_KEY }}'
       # - run: terraform init
       # - id: plan
       #   run: terraform plan -no-color
