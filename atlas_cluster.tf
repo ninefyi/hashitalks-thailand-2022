@@ -6,6 +6,7 @@ resource "mongodbatlas_cluster" "cluster" {
   # Provider Settings "block"
   cloud_backup                 = false
   auto_scaling_disk_gb_enabled = false
+  backup_enabled = false
   provider_name = "TENANT"
   backing_provider_name = "AWS"
   provider_instance_size_name  = "M0"
