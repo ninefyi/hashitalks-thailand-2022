@@ -18,8 +18,9 @@ jobs:
           sed -i -e 's/ATLAS_API_PUBLIC_KEY/${{ secrets.ATLAS_API_PUBLIC_KEY }}/g' terraform.tfvars.json
           sed -i -e 's/ATLAS_ORG_ID/${{ secrets.ATLAS_ORG_ID }}/g' terraform.tfvars.json
       - run: terraform init
-      - id: plan
-        run: terraform plan -var-file=terraform.tfvars.json  -no-color
-      # - name: Terraform Apply
-      #   id: apply
-      #   run: terraform apply
+      - name: Terraform apply
+        id: plan
+        run: terraform plan -var-file=terraform.tfvars.json -no-color
+      - name: Terraform Apply
+        id: apply
+        run: terraform apply -var-file=terraform.tfvars.json
