@@ -19,7 +19,7 @@ jobs:
           sed -i -e 's/ATLAS_ORG_ID/${{ secrets.ATLAS_ORG_ID }}/g' terraform.tfvars.json
       - run: terraform init
       - id: plan
-        run: terraform plan -no-color
+        run: terraform plan -var-file=terraform.tfvars.json  -no-color
       # - name: Terraform Apply
       #   id: apply
       #   run: terraform apply
