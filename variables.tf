@@ -46,4 +46,7 @@ variable "instance_size_name" {
   type        = string
   description = "The database instance size name (M0, M10, M20)"
 }
-
+variable "project_id" {
+  type        = string
+  description = "MongoDB project id"
+}

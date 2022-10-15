@@ -1,5 +1,5 @@
 resource "mongodbatlas_cluster" "cluster" {
-  project_id             = mongodbatlas_project.project.id
+  project_id             = var.project_id
   name                   = var.cluster_name
   mongo_db_major_version = var.mongodbversion
   cluster_type           = "REPLICASET"
