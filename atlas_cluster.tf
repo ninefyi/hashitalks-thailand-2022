@@ -4,7 +4,6 @@ resource "mongodbatlas_cluster" "cluster" {
   mongo_db_major_version = var.mongodbversion
   cluster_type           = "REPLICASET"
   # Provider Settings "block"
-  cloud_backup                 = false
   auto_scaling_disk_gb_enabled = false
   backup_enabled = false
   provider_name = "TENANT"
