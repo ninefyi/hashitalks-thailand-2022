@@ -1,3 +1,8 @@
 # HashiTalks Thailand 2022
 
-## MDB Atlas API Key
+## Create Secrets
+
+- ATLAS_API_PRIVATE_KEY
+- ATLAS_API_PUBLIC_KEY
+- ATLAS_ORG_ID
+- ATLAS_PROJECT_ID
